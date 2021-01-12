@@ -16,3 +16,16 @@ textarea {
 #save-button {
   float: right;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+#displayarea {
+  border: solid lightgray;
+  height: 500px;
+}

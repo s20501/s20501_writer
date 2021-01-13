@@ -35,9 +35,9 @@ function addHTMLToTextarea() {
   const index = $("#textarea").prop("selectionStart");
 
   const generatedSpan = `<span class="bold"></span>`;
-  $("#textarea").val((_, val) => {
-    return val.substr(0, index) + generatedSpan + val.substr(index);
-  });
+  $("#textarea").val(
+    (_, val) => val.substr(0, index) + generatedSpan + val.substr(index)
+  );
 
   const cursorPosition = index + generatedSpan.length - 7;
 

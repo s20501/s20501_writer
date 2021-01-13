@@ -5,6 +5,7 @@ init();
  *
  */
 function init() {
+  load();
   setEvents();
 }
 
@@ -15,6 +16,7 @@ function init() {
 function setEvents() {
   $("#textarea").on("input", () => addHtmlToView());
   $("#textarea").on("click", () => addHTMLToTextarea());
+  $("#save-button").on("click", () => save());
 }
 
 /**
@@ -40,4 +42,22 @@ function addHTMLToTextarea() {
   const cursorPosition = index + generatedSpan.length - 7;
 
   $("#textarea").prop("selectionEnd", cursorPosition);
+}
+
+/**
+ * Zapisuje dane do localStorage
+ *
+ */
+function save() {
+  // Store
+  localStorage.setItem("savedText", $("#textarea").val());
+}
+
+/**
+ * Odczytuje dane z localstorage
+ *
+ */
+function load() {
+  $("#textarea").val(localStorage.getItem("savedText"));
+  $("#displayarea").html(localStorage.getItem("savedText"));
 }

@@ -18,7 +18,10 @@ function init() {
 function setEvents() {
   $("#textarea").on("input", () => addHtmlToView());
   $("#textarea").on("click", () => addHTMLToTextarea());
-  $("#save-button").on("click", () => save());
+  $("#save-button").on("click", () => {
+    save();
+    alert("Zapisano");
+  });
   $("#bold-button").on("click", () => changeStyle($("#bold-button"), "bold"));
   $("#italic-button").on("click", () =>
     changeStyle($("#italic-button"), "italic")
@@ -26,6 +29,7 @@ function setEvents() {
   $("#yellow-button").on("click", () =>
     changeStyle($("#yellow-button"), "yellow")
   );
+  $("#print-button").on("click", () => print());
 }
 
 /**
@@ -94,4 +98,13 @@ function changeStyle(button, className) {
     styles = styles.trim();
     button.addClass("btn-primary");
   }
+}
+
+/**
+ * Drukuje
+ *
+ */
+function print() {
+  save();
+  window.open(window.location.href.replace("index.html", "print.html"));
 }

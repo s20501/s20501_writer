@@ -24,6 +24,7 @@ textarea {
 
 .yellow {
   background-color: yellow;
+  -webkit-print-color-adjust: exact;
 }
 
 #displayarea {

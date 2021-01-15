@@ -22,6 +22,10 @@ textarea {
   font-style: italic;
 }
 
+.yellow {
+  background-color: yellow;
+}
+
 #displayarea {
   border: solid lightgray;
   height: 500px;

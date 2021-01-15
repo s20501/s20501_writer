@@ -20,6 +20,12 @@ function setEvents() {
   $("#textarea").on("click", () => addHTMLToTextarea());
   $("#save-button").on("click", () => save());
   $("#bold-button").on("click", () => changeStyle($("#bold-button"), "bold"));
+  $("#italic-button").on("click", () =>
+    changeStyle($("#italic-button"), "italic")
+  );
+  $("#yellow-button").on("click", () =>
+    changeStyle($("#yellow-button"), "yellow")
+  );
 }
 
 /**
@@ -27,6 +33,7 @@ function setEvents() {
  *
  */
 function addHtmlToView() {
+  $("#textarea").val((_, val) => val.replace(/\r\n|\r|\n/g, "<br />"));
   $("#displayarea").html($("#textarea").val());
 }
 
@@ -39,7 +46,7 @@ function addHTMLToTextarea() {
     return;
   }
 
-  const index = $("#textarea").prop("selectionStart");
+  index = $("#textarea").prop("selectionStart");
 
   const generatedSpan = `<span class="${styles}"></span>`;
   $("#textarea").val(

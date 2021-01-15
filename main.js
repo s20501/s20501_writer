@@ -106,5 +106,5 @@ function changeStyle(button, className) {
  */
 function print() {
   save();
-  window.open(window.location.href.replace("index.html", "print.html"));
+  window.open(window.location.href + "/print.html");
 }
